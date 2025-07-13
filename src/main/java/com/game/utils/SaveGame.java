@@ -6,9 +6,9 @@ import java.util.Map;
 
 import com.game.Player;
 
-public class ExcelWrite {
+public class SaveGame {
 
-    public static void writeSantaPairs(String filePath, Map<Player, Player> assignments) throws IOException {
+    public static void saveSantaPairsCSV(String filePath, Map<Player, Player> assignments) throws IOException {
         try (FileWriter writer = new FileWriter(filePath)) {
             writer.write("Santa Name,Santa Email,Child Name,Child Email\n");
 
