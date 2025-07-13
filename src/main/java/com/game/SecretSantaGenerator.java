@@ -7,11 +7,10 @@ import java.util.List;
 import java.util.Map;
 import java.util.Random;
 
-public class SecretSanta {
+public class SecretSantaGenerator {
 
-    public static Map<Player, Player> assignSecretSantas(List<Player> players, Map<Player,Player> previousPairs) {
+    public static Map<Player, Player> generate(List<Player> players, Map<Player,Player> previousPairs) {
 
-        // Shuffle to randomize the player order
         List<Player> santas = new ArrayList<>(players);
         List<Player> children = new ArrayList<>(players);
         Random rand = new Random();
