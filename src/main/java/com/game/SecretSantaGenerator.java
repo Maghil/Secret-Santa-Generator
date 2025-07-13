@@ -8,6 +8,7 @@ import java.util.Map;
 import java.util.Random;
 
 import com.game.model.Player;
+import com.game.utils.AppProperties;
 
 public class SecretSantaGenerator {
 
@@ -18,7 +19,7 @@ public class SecretSantaGenerator {
         Random rand = new Random();
 
         int attempts = 0;
-        while (attempts < 1000) {
+        while (attempts < Integer.parseInt(AppProperties.get("retry_count.min"))) {
             Collections.shuffle(children, rand);
             boolean isValid = true;
             Map<Player, Player> result = new HashMap<>();
