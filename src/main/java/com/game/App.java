@@ -7,9 +7,9 @@ public class App {
         try {
             GameRunner runner = new GameRunner();
             runner.run();
-            System.out.println("✅ Secret Santa successfully generated and saved!");
+            System.out.println("Secret Santa successfully generated and saved!");
         } catch (Exception e) {
-            System.err.println("❌ Error: " + e.getMessage());
+            System.err.println("Error: " + e.getMessage());
         }
     }
 }

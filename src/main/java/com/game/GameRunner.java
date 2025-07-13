@@ -5,15 +5,17 @@ import java.util.List;
 import java.util.Map;
 
 import com.game.model.Player;
+import com.game.utils.AppProperties;
 import com.game.utils.Parser;
 import com.game.utils.ParserFactory;
 import com.game.utils.SaveGame;
-
 public class GameRunner {
 
-    String player_file_path = "src/resources/players_list.csv";
-    String previous_game_path = "src/resources/previous_game.csv";
-    String game_save_path = "src/resources/new_pairs.csv";
+    String player_file_path = AppProperties.get("file.player_list.path");
+
+    String previous_game_path = AppProperties.get("file.previous_game.path");
+
+    String game_save_path = AppProperties.get("file.new_game.path");
 
     public void run() throws IOException {
 
