@@ -9,6 +9,7 @@ import com.game.utils.AppProperties;
 import com.game.utils.Parser;
 import com.game.utils.ParserFactory;
 import com.game.utils.SaveGame;
+
 public class GameRunner {
 
     String player_file_path = AppProperties.get("file.player_list.path");
@@ -19,14 +20,23 @@ public class GameRunner {
 
     public void run() throws IOException {
 
-        Parser<List<Player>> playerParser = (Parser<List<Player>>) ParserFactory.getParser("player");
-        List<Player> players = playerParser.parse(player_file_path);
+        try {
+            Parser<List<Player>> playerParser = (Parser<List<Player>>) ParserFactory.getParser("player");
+            List<Player> players = playerParser.parse(player_file_path);
 
-        Parser<Map<Player, Player>> previousGameParser = (Parser<Map<Player, Player>>) ParserFactory.getParser("previous_game");
-        Map<Player, Player> previousPairs = previousGameParser.parse(previous_game_path);
+            Parser<Map<Player, Player>> previousGameParser = (Parser<Map<Player, Player>>) ParserFactory.getParser("previous_game");
+            Map<Player, Player> previousPairs = previousGameParser.parse(previous_game_path);
 
-        Map<Player, Player> newPairs = SecretSantaGenerator.generate(players, previousPairs);
+            Map<Player, Player> newPairs = SecretSantaGenerator.generate(players, previousPairs);
 
-        SaveGame.saveSantaPairsCSV(game_save_path, newPairs);
+            SaveGame.saveSantaPairsCSV(game_save_path, newPairs);
+        } catch (IOException e) {
+            System.err.println("I/O error: " + e.getMessage());
+            throw new RuntimeException(e);
+        } catch (Exception e) {
+            System.err.println("Unexpected error: " + e.getMessage());
+            e.printStackTrace();
+            throw new RuntimeException(e);
+        }
     }
 }

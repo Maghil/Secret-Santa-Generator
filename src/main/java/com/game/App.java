@@ -8,8 +8,10 @@ public class App {
             GameRunner runner = new GameRunner();
             runner.run();
             System.out.println("Secret Santa successfully generated and saved!");
+        } catch (RuntimeException e) {
+            System.err.println("Runtime error: " + e.getMessage());
         } catch (Exception e) {
-            System.err.println("Error: " + e.getMessage());
+            System.err.println("Unexpected error: " + e.getMessage());
         }
     }
 }
