@@ -6,9 +6,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import com.game.utils.ExcelWrite;
 import com.game.utils.Parser;
 import com.game.utils.ParserFactory;
+import com.game.utils.SaveGame;
 
 public class App {
 
@@ -23,6 +23,6 @@ public class App {
         players = player_parser.parse("src\\resources\\players_list.csv");
         previous_pairs = game_parser.parse("src\\resources\\previous_game.csv");
         new_pairs = SecretSanta.assignSecretSantas(players, previous_pairs);
-        ExcelWrite.writeSantaPairs("src\\resources\\new_pairs.csv", new_pairs);
+        SaveGame.saveSantaPairsCSV("src\\resources\\new_pairs.csv", new_pairs);
     }
 }
