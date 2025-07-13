@@ -7,6 +7,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Random;
 
+import com.game.model.Player;
+
 public class SecretSantaGenerator {
 
     public static Map<Player, Player> generate(List<Player> players, Map<Player,Player> previousPairs) {

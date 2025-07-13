@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.game.Player;
+import com.game.model.Player;
 
 public class PlayerListParser implements Parser<List<Player>> {
 
@@ -19,11 +19,11 @@ public class PlayerListParser implements Parser<List<Player>> {
             boolean isFirstLine = true;
             while ((line = reader.readLine()) != null) {
                 if (isFirstLine) {
-                    isFirstLine = false; // skip header
+                    isFirstLine = false;
                     continue;
                 }
 
-                String[] parts = line.split(",", -1); // -1 to retain empty fields
+                String[] parts = line.split(",", -1);
                 if (parts.length < 2) {
                     continue;
                 }

@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.game.Player;
+import com.game.model.Player;
 
 public class PrevousGameParser implements Parser<Map<Player, Player>> {
 
@@ -19,11 +19,11 @@ public class PrevousGameParser implements Parser<Map<Player, Player>> {
             boolean isFirstLine = true;
             while ((line = reader.readLine()) != null) {
                 if (isFirstLine) {
-                    isFirstLine = false; // skip header
+                    isFirstLine = false;
                     continue;
                 }
 
-                String[] parts = line.split(",", -1); // -1 to retain empty fields
+                String[] parts = line.split(",", -1);
                 if (parts.length < 4) {
                     continue;
                 }

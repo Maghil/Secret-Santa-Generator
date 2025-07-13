@@ -4,7 +4,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Map;
 
-import com.game.Player;
+import com.game.model.Player;
 
 public class SaveGame {
 

@@ -1,4 +1,4 @@
-package com.game;
+package com.game.model;
 public class Player {
    private String name;
    private String email;
@@ -14,9 +14,5 @@ public class Player {
 
    public String getEmail() {
       return email;
-   }
-
-   public boolean hasEmail() {
-      return !email.equals("");
    }
 }
